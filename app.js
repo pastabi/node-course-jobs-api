@@ -1,7 +1,7 @@
 require("dotenv").config();
 require("express-async-errors");
 
-// security packanges
+// security packages
 const helmet = require("helmet");
 const cors = require("cors");
 const { xss } = require("express-xss-sanitizer");
@@ -18,10 +18,11 @@ const authenticateUser = require("./middleware/authentication");
 const authRouter = require("./routes/auth");
 const jobsRouter = require("./routes/jobs");
 
-// error handler
+// error handlers
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
+// security middlewares
 app.set("trust proxy", 1 /* number of proxies between user and server */);
 app.use(
   rateLimiter({
@@ -41,6 +42,7 @@ app.use(xss());
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 
+// error handling middlewares
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
