@@ -38,6 +38,7 @@ app.use(
     ipv6Subnet: 56, // Set to 60 or 64 to be less aggressive, or 52 or 48 to be more aggressive
   })
 );
+app.use(express.static("./public"));
 app.use(express.json());
 app.use(helmet());
 app.use(cors());
