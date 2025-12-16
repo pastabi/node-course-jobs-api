@@ -104,7 +104,14 @@ paths:
       deprecated: false
       security:
         - bearer: []
-  /jobs/693c816483015d0266839d8f:
+  /jobs/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The job ID
     get:
       tags:
         - Jobs
@@ -118,7 +125,6 @@ paths:
       deprecated: false
       security:
         - bearer: []
-  /jobs/693c836683015d0266839d9c:
     patch:
       tags:
         - Jobs
@@ -146,7 +152,7 @@ paths:
       deprecated: false
       security:
         - bearer: []
-  /jobs/693de0cc29510baa9d35c5a3:
+
     delete:
       tags:
         - Jobs
@@ -228,8 +234,6 @@ components:
       scheme: bearer
 security: []
 tags:
-  - name: Misc
-    description: ""
   - name: Auth
     description: ""
   - name: Jobs
