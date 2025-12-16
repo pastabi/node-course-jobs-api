@@ -11,10 +11,16 @@ body {
   /* text-align: center; */
 }
 
+h2 {
+  font-weight: normal;
+  font-size: 20px;
+}
+
 a:link,
 a:visited {
   color: #322255;
-  text-decoration: none;
+  /* font-weight: bold; */
+  /* text-decoration: none; */
 }
 
 a:hover,
@@ -27,7 +33,7 @@ a:active {
   display: inline-block;
   margin-top: 15px;
   font-size: 20px;
-  border: 2px #322255 solid;
-  border-radius: 8px;
-  padding: 4px 10px;
+  /* border: 2px #322255 solid; */
+  /* border-radius: 8px; */
+  /* padding: 4px 10px; */
 }
