@@ -10,6 +10,7 @@ const rateLimiter = require("express-rate-limit");
 // swagger
 const swaggerUI = require("swagger-ui-express");
 const YAML = require("yamljs");
+const path = require("path");
 const swaggerDocument = YAML.load("./swagger.yaml");
 
 const express = require("express");
@@ -45,10 +46,15 @@ app.use(cors());
 app.use(xss());
 
 // routes
-app.get("/", (req, res) => {
-  res.send("<h1>Jobs API</h1><a href='/api-docs'>Documentation</a>");
+app.get("/api-docs/favicon-*.png", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "favicon.png"));
 });
-app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+const options = {
+  // customFavicon: "/favicon.png",
+  customSiteTitle: "Jobs API Swagger documentation",
+  customCssUrl: "/swagger.css",
+};
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument, options));
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", authenticateUser, jobsRouter);
