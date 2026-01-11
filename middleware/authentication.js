@@ -1,4 +1,3 @@
-const UserShema = require("../models/User");
 const jwt = require("jsonwebtoken");
 const { UnauthenticatedError } = require("../errors");
 

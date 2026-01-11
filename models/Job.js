@@ -18,7 +18,7 @@ const JobSchema = new mongoose.Schema(
       default: "pending",
     },
     createdBy: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: [true, "Please, provide a user bounded to this job"],
     },
